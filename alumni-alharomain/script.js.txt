@@ -1,0 +1,56 @@
+let alumni = JSON.parse(localStorage.getItem("alumniAlHaromain")) || [];
+
+const form = document.getElementById("alumniForm");
+const tbody = document.getElementById("dataAlumni");
+
+function tampilkanData() {
+  tbody.innerHTML = "";
+  alumni.forEach((data, index) => {
+    tbody.innerHTML += `
+      <tr>
+        <td>${index + 1}</td>
+        <td><img src="${data.foto}"></td>
+        <td>${data.nama}</td>
+        <td>${data.alamat}</td>
+        <td>${data.masuk}</td>
+        <td>${data.keluar}</td>
+        <td>${data.telp}</td>
+        <td>
+          <button onclick="hapusData(${index})">Hapus</button>
+        </td>
+      </tr>
+    `;
+  });
+}
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const file = foto.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function() {
+    alumni.push({
+      nama: nama.value,
+      alamat: alamat.value,
+      masuk: masuk.value,
+      keluar: keluar.value,
+      telp: telp.value,
+      foto: reader.result
+    });
+
+    localStorage.setItem("alumniAlHaromain", JSON.stringify(alumni));
+    form.reset();
+    tampilkanData();
+  };
+
+  reader.readAsDataURL(file);
+});
+
+function hapusData(index) {
+  alumni.splice(index, 1);
+  localStorage.setItem("alumniAlHaromain", JSON.stringify(alumni));
+  tampilkanData();
+}
+
+tampilkanData();

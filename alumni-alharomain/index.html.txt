@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Data Alumni Al-Haromain Cirangin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Daftar Data Alumni</h1>
+  <h2>Pondok Pesantren Al-Haromain Cirangin</h2>
+</header>
+
+<section class="form-section">
+  <h3>Tambah Data Alumni</h3>
+  <form id="alumniForm">
+    <input type="text" id="nama" placeholder="Nama Lengkap" required>
+    <input type="text" id="alamat" placeholder="Alamat" required>
+    <input type="number" id="masuk" placeholder="Tahun Masuk" required>
+    <input type="number" id="keluar" placeholder="Tahun Keluar" required>
+    <input type="tel" id="telp" placeholder="No. Telepon" required>
+    <input type="file" id="foto" accept="image/*" required>
+    <button type="submit">Simpan</button>
+  </form>
+</section>
+
+<section class="table-section">
+  <h3>Data Alumni</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Foto</th>
+        <th>Nama</th>
+        <th>Alamat</th>
+        <th>Masuk</th>
+        <th>Keluar</th>
+        <th>No. Telp</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody id="dataAlumni"></tbody>
+  </table>
+</section>
+
+<footer>
+  <p>© Pondok Pesantren Al-Haromain Cirangin</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
